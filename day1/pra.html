@@ -54,7 +54,6 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
-            z-index: 2;  /* Ensure the hamburger is above the menu */
         }
 
         .hamburger span {
@@ -62,25 +61,24 @@
             width: 25px;
             height: 3px;
             background: white;
+            
         }
 
         /* Mobile Menu */
         .nav-links-mobile {
             text-decoration: none;
             list-style: none;
-            display: flex;
+            display: none;
             flex-direction: column;
             gap: 1rem;
             background-color: #333;
-            position: fixed;
-            top: 20px;
-            right: -250px;  /* Initially hidden off-screen */
-            height: 100vh;
-            padding: 2rem;
-            transition: right 0.5s ease;  /* Slide-in effect */
-            z-index: 1;  /* Keep the menu behind the hamburger */
+            position: absolute;
+            top: 60px;
+            right: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
-
         .nav-links-mobile a {
             text-decoration: none;
             color: white;
@@ -88,7 +86,7 @@
         }
 
         .nav-links-mobile.active {
-            right: 0;  /* Slide into view */
+            display: flex;
         }
 
         /* Responsive Design */
@@ -106,7 +104,6 @@
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="logo">MyWebsite</div>
         <ul class="nav-links">
@@ -133,10 +130,9 @@
         const hamburger = document.getElementById('hamburger');
         const navLinksMobile = document.getElementById('nav-links-mobile');
 
-        hamburger.addEventListener('click', () => {
-            // Toggle 'active' class to slide in/out the menu
-            navLinksMobile.classList.toggle('active');
-        });
+            hamburger.addEventListener('click', () => {
+                navLinksMobile.classList.toggle('active');
+            });
     </script>
 </body>
 </html>
